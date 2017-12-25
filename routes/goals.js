@@ -32,6 +32,7 @@ router.post('/', function(req, res, next) {
 
   //input validation
   if(req.body.userid && req.body.name && req.body.tags && req.body.description && req.body.achiveDate) {
+    
     var goalObj = {
       _id :  "GOAL"+randomdata.getRandomInteger(),
       name: req.body.name,
@@ -40,7 +41,8 @@ router.post('/', function(req, res, next) {
       achiveDate: req.body.achiveDate,
       status: "NotInitialized",
       progress: '',
-      task: [],
+      mainTask: [],
+      subTask: [],
       user: req.body.userid,
       createdAt: new Date(),
       lastUpdatedAt: new Date()
