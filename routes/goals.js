@@ -15,14 +15,14 @@ router.get('/:goalid', function(req, res, next) {
       }
       else {
         if(docs.length > 0)
-          res.status(200).send({"success": true, statusCode: 200, res: docs});
+          res.status(200).send({success: true, successObj: docs, errorObj: null, responseText: "Found goal details"});
         else
-          res.status(404).send({"success": false, statusCode: 404, res: "Couldn't found goal details."});
+          res.status(404).send({success: false, successObj: null, errorObj: null, responseText: "Couldn't found goal details."});
       }
     });
   }
   else{
-    res.status(400).send({"success": false, statusCode: 400, res: "Inputs are not proper"});
+    res.status(400).send({success: false, successObj: null, errorObj: null, responseText: "Inputs are not proper"});
   }
 });
 
@@ -68,36 +68,12 @@ router.post('/', function(req, res, next) {
           if(err)
             throw err;
 
-            res.status(200).send({"status": true, statusCode: 200, res: "Goal added succesfully"});
+            res.status(200).send({success: true, successObj: doc, errorObj: null, responseText: "Goal added succesfully"});
         });
     });
   }
   else{
-    res.status(400).send({"status": false, statusCode: 400, res: "Inputs are not proper"});
-  }
-});
-
-/* validate userid */
-router.get('/validate/:userid', function(req, res, next) {
-  const db = req.app.locals.db;
-  
-  //input validation
-  if(req.params.userid) {
-  
-    db.collection('users').find({_id: req.params.userid}).toArray(function(err, docs) {
-      if(err) {
-        throw err;
-      }
-      else {
-        if(docs.length > 0)
-          res.status(200).send({"success": false, statusCode: 200, res: "Invalid userid, userid already in use"});
-        else
-          res.status(200).send({"success": true, statusCode: 200, res: "Valid userid"});
-      }
-    });
-  }
-  else{
-    res.status(400).send({"success": false, statusCode: 400, res: "Inputs are not proper"});
+    res.status(400).send({success: false, successObj: null, errorObj: null, responseText: "Inputs are not proper"});
   }
 });
 
