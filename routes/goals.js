@@ -45,7 +45,8 @@ router.post('/', function(req, res, next) {
       subTask: [],
       user: req.body.userid,
       createdAt: new Date(),
-      lastUpdatedAt: new Date()
+      lastUpdatedAt: new Date(),
+      active: true
     }
 
     db.collection('goals').insert(goalObj, function(err, doc) {

@@ -52,7 +52,8 @@ router.post('/', function(req, res, next) {
       goalid: req.body.goalid,
       parentTaskId: req.body.parentTaskId !== undefined ? req.body.parentTaskId : null,
       createdAt: new Date(),
-      lastUpdatedAt: new Date()
+      lastUpdatedAt: new Date(),
+      active: true
     }
 
     db.collection('tasks').insert(taskObj, function(err, doc) {

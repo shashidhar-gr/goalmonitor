@@ -39,7 +39,8 @@ router.post('/', function(req, res, next) {
       goals: [],
       password: req.body.password,
       createdAt: new Date(),
-      lastUpdatedAt: new Date()
+      lastUpdatedAt: new Date(),
+      active: true
     }
 
     db.collection('users').insertOne(userObj, function(err, doc) {
