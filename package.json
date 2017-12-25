@@ -1,5 +1,5 @@
 {
-  "name": "movieapp",
+  "name": "goalmonitor",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -11,7 +11,13 @@
     "debug": "~2.6.9",
     "express": "~4.15.5",
     "jade": "~1.11.0",
+    "mongodb": "^3.0.0",
+    "mongojs": "^2.4.1",
     "morgan": "~1.9.0",
+    "random-js": "^1.0.8",
     "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.14.3"
   }
 }
